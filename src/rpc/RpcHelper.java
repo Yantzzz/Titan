@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import entity.Item;
+
 /**
  * A helper class to handle rpc related parsing logics.
  */
@@ -58,4 +60,17 @@ public class RpcHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	public static JSONArray getJSONArray(List<Item> items) {
+		JSONArray result = new JSONArray();
+		try {
+			for (Item item : items) {
+				result.put(item.toJSONObject());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }
