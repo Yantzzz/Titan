@@ -20,10 +20,10 @@
 
 		validateSession();
 
-		//onSessionValid({
-		//	user_id : '1111',
-		//	name : 'John Smith'
-		//});
+		onSessionValid({
+			user_id : '1111',
+			name : 'John Smith'
+		});
 	}
 
 	/**
@@ -493,7 +493,7 @@
 		category.innerHTML = 'Category: ' + item.categories.join(', ');
 		section.appendChild(category);
 
-		// TODO(vincent). here we might have a problem showing 3.5 as 3.
+		// TODO. here we might have a problem showing 3.5 as 3.
 		// stars
 		var stars = $('div', {
 			className : 'stars'
