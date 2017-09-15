@@ -5,8 +5,8 @@
 	 */
 	var user_id = '';
 	var user_fullname = '';
-	var lng = -122.08;
-	var lat = 37.38;
+	var lng = -121.84;
+	var lat = 37.32;
 
 	/**
 	 * Initialize
@@ -18,11 +18,11 @@
 		$('fav-btn').addEventListener('click', loadFavoriteItems);
 		$('recommend-btn').addEventListener('click', loadRecommendedItems);
 
-		validateSession();
+		//validateSession();
 
 		onSessionValid({
 			user_id : '1111',
-			name : 'John Smith'
+			name : 'Yan Tian'
 		});
 	}
 

@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +43,14 @@ public class ItemHistory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("user") == null) {
+//			response.setStatus(403);
+//			return;
+//		}
+
+		//String userId = session.getAttribute("user").toString();
+
 		String userId = request.getParameter("user_id");
 		   Set<Item> items = conn.getFavoriteItems(userId);
 		   JSONArray array = new JSONArray();
@@ -63,6 +72,14 @@ public class ItemHistory extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("user") == null) {
+//			response.setStatus(403);
+//			return;
+//		}
+//
+//		String userId = session.getAttribute("user").toString();
+		//String userId = request.getParameter("user_id");
 		try {
 			JSONObject input = RpcHelper.readJsonObject(request);
 			String userId = input.getString("user_id");
@@ -88,6 +105,15 @@ public class ItemHistory extends HttpServlet {
 	 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
+//		HttpSession session = request.getSession();
+//		if (session.getAttribute("user") == null) {
+//			response.setStatus(403);
+//			return;
+//		}
+//
+//		String userId = session.getAttribute("user").toString();
+		//String userId = request.getParameter("user_id");
+
 	   try {
 	     JSONObject input = RpcHelper.readJsonObject(request);
 	     String userId = input.getString("user_id");
